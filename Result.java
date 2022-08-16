@@ -12,7 +12,7 @@ public class Result {
     public static void main(String args[]) throws IOException{
       BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
       System.out.println("Original string: ");
-      String userInput = input.readLine();
+      String userInput = input.readLine() != null ? input.readLine() : "";
       int stringSize = userInput.length();
       int[] countingArray;
       countingArray = new int[26]; 
