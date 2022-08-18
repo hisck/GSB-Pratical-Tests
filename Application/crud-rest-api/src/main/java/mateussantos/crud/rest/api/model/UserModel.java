@@ -1,23 +1,35 @@
 package mateussantos.crud.rest.api.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "User")
 public class UserModel {
 
     @Id
-    public Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    private Integer id;
 
     @Column(nullable = false, length = 50)
-    public String name;
+    private String name;
 
-    @Column(nullable = false, length = 20)
-    public String login;
+    @Column(length = 20)
+    private String login;
 
-    @Column(nullable = false, length = 250)
-    public String email;
+    @Column(length = 250)
+    private String email;
+
+    @Column(length = 250)
+    private String Address;
+
+    @Column(length = 50)
+    private String City;
+
+    @Column(length = 50)
+    private String State;
+
+    @Column(length = 9)
+    private String ZipCode;
 
     public Integer getId() {
         return id;
@@ -49,5 +61,37 @@ public class UserModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String state) {
+        State = state;
+    }
+
+    public String getZipCode() {
+        return ZipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        ZipCode = zipCode;
     }
 }
