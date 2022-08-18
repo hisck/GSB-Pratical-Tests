@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.google.gson.Gson;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -13,6 +14,8 @@ import java.util.concurrent.ExecutionException;
 @RestController
 @RequestMapping("/api/users/")
 public class UserController {
+
+    private static final Gson gson = new Gson();
 
     @Autowired
     UserService userService;
@@ -33,29 +36,29 @@ public class UserController {
     }
 
     @PostMapping("create")
-    public ResponseEntity<Object> createUser(@RequestBody UserModel user){
+    public ResponseEntity<String> createUser(@RequestBody UserModel user){
         try{
-            return new ResponseEntity<Object>(userService.saveUser(user), HttpStatus.CREATED);
+            return ResponseEntity.ok(gson.toJson(userService.saveUser(user)));
         }catch (Exception e){
-            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(gson.toJson("There was an error trying to create this user"));
         }
     }
 
         @PostMapping("update")
-    public ResponseEntity<Object> updateUser(@RequestBody UserModel user){
+    public ResponseEntity<String> updateUser(@RequestBody UserModel user){
         try{
-            return new ResponseEntity<Object>(userService.saveUser(user), HttpStatus.OK);
+            return ResponseEntity.ok(gson.toJson(userService.saveUser(user)));
         }catch (Exception e){
-            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(gson.toJson("There was an error trying to update this user"));
         }
     }
 
     @PostMapping("delete/{id}")
-    public ResponseEntity<Object> deleteById(@PathVariable("id") Integer id){
+    public ResponseEntity<String> deleteById(@PathVariable("id") Integer id){
         try{
-            return new ResponseEntity<Object>(userService.deleteUser(id), HttpStatus.OK);
+            return ResponseEntity.ok(gson.toJson(userService.deleteUser(id)));
         }catch (Exception e){
-            return new ResponseEntity<Object>("Error trying to delete User data", HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(gson.toJson("Error trying to delete User data"));
         }
     }
 }

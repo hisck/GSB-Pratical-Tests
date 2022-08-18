@@ -59,8 +59,8 @@ export class AppComponent implements OnInit{
     document.getElementById('add-User-form')?.click();
     this.userService.addUser(addForm.value).subscribe(
       (response: string) => {
-        alert(response);
         this.getUsers();
+        alert(response);
         addForm.reset();
       }
     )
@@ -69,8 +69,8 @@ export class AppComponent implements OnInit{
   public onUpdateUser(user: User): void{
     this.userService.updateUser(user).subscribe(
       (response: string) => {
-        alert(response);
         this.getUsers();
+        alert(response);
       }
     )
   }
@@ -78,8 +78,8 @@ export class AppComponent implements OnInit{
   public onDeleteUser(userId: number): void{
     this.userService.deleteUser(userId).subscribe(
       (response: string) => {
-        alert(response);
         this.getUsers();
+        alert(response);
       }
     )
   }
