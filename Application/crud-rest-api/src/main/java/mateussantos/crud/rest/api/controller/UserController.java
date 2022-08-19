@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import com.google.gson.Gson;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/api/users/")

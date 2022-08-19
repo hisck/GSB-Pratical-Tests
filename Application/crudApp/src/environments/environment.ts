@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/api'
+  apiUrl: 'http://crudapi-env.eba-cfz2u4sm.us-east-1.elasticbeanstalk.com/api'
 };
 
 /*
