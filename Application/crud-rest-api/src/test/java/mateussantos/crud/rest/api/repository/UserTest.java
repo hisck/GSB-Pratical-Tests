@@ -45,16 +45,4 @@ public class UserTest {
 
         repository.save(user2);
     }
-
-    @Test
-    void cantFindUser() {
-        Optional<UserModel> user = repository.findById(10000);
-        Assertions.assertThat(user).isNotNull();
-    }
-
-    void findUser(){
-        Optional<UserModel> user = repository.findById(1000);
-        Assertions.assertThat(user).isNotNull();
-    }
-
 }
