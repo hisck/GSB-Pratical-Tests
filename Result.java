@@ -9,9 +9,13 @@ import java.util.regex.*;
 import java.util.stream.*;
 
 public class Result {
+    //Function that verify if a letter has already appeared before on the string
     public static boolean checkLetterAppearence(int arr[], int letterValue){
         int index = 0;
         boolean returnValue = false;
+        //This condition checks the end. Once the letterAppearenceOrder array had been initialized with all the values as -1, that means that
+        //if the value at some index is -1, that means that it has reached the end of the array, so it the letter haven't appeared before on the 
+        //string.
         while(arr[index] != -1){
             if(arr[index] == letterValue){
                 returnValue = true;
@@ -49,6 +53,7 @@ public class Result {
                   }
               }
             }
+            //Print for each letter that appeared (on the order that it appeared on the string) how many times it appeared on the string
             for(int i = 0; i < cntLetters; i++){
               int letterValue = letterAppearenceOrder[i];
               int ascValue = letterValue + 65;
