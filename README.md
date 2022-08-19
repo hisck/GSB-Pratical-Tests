@@ -14,6 +14,8 @@ The folder inside the Application folder named "Librarie" (it was suppose to be 
 
 The folder inside the Application folder named "crud-rest-api" it is the server side code. It was written on Java 11 using spring boot. There's not much about it, it is a simple api that has only one entity, that is users, and it has all the crud operations to this entity.
 
+To implement the api, it was used not only java 11 and spring boot, but also mysql as database. So in order to test it, you need mysql version 8 to run.
+
 The folder inside the Application folder named "crudApp" contains the client side code. It was written using angular, and it was generated with Angular CLi 14.1.3 . To build the front end, i used a Bootstrap snippet in order to save some time. This snippet can be found on the following link https://www.bootdey.com/snippets/view/Contacts-Grid-Cards and it has MIT license, if i recall, so it can be used.
 
 The App is supposed to be hosted on the AWS on the following link (if i remember there was no policy to restrict access) - http://crudappng.s3-website-us-east-1.amazonaws.com, but for some reason the API is returning 502. 
